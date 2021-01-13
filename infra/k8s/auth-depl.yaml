@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      - name: auth
+      # updated image name to use the gCloud built one
+        image: us.gcr.io/ticketing-dev-301615/auth
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+
+---
+
+# Cluster IP service
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+spec:
+  selector:
+    app: auth
+  # default type is ClusterIp
+  ports:
+  - name: auth
+    protocol: TCP
+    port: 3001
+    targetPort: 3001
+
+
+
