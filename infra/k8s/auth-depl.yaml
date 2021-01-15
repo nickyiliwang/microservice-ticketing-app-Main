@@ -16,10 +16,7 @@ spec:
       - name: auth
       # updated image name to use the gCloud built one
         image: us.gcr.io/ticketing-dev-301615/auth
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+
 
 ---
 

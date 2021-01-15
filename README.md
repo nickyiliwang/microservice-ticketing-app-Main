@@ -34,4 +34,7 @@ gcloud auth application-default login
 skaffold is made by google affiliated devs therefore it's got good gcloud integrations built-in.
 
 # Notes on local vs remote K8s
-for future 
+
+for future skaffold config and depl yaml:
+
+us.gcr.io/ticketing-dev-301615/<name>
